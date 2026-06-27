@@ -1,0 +1,257 @@
+:root {
+  color-scheme: dark;
+  --bg: #071013;
+  --panel: #102125;
+  --panel-2: #182d32;
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f4fbf8;
+  --muted: #9fb4b1;
+  --accent: #ffcf48;
+  --danger: #ff5f6d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  touch-action: none;
+}
+
+body {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 207, 72, 0.18), transparent 28rem),
+    linear-gradient(155deg, #071013 0%, #142527 52%, #101015 100%);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button {
+  border: 0;
+  color: inherit;
+  font: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px;
+  height: 100dvh;
+  padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+}
+
+.game-shell {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 10px;
+  min-height: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(7, 16, 19, 0.82);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.38);
+  overflow: hidden;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 12px 0;
+}
+
+.eyebrow {
+  margin: 0 0 2px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 22px;
+  line-height: 1.05;
+}
+
+.icon-button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  aspect-ratio: 1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel-2);
+  font-weight: 900;
+}
+
+.play-area {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 92px;
+  gap: 10px;
+  min-height: 0;
+  padding: 0 12px 12px;
+}
+
+#board {
+  width: 100%;
+  max-height: 100%;
+  aspect-ratio: 1 / 2;
+  align-self: center;
+  justify-self: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: #05090b;
+}
+
+.hud {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.stat,
+.next-box {
+  display: grid;
+  gap: 4px;
+  padding: 9px 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+}
+
+.stat span,
+.next-box span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.stat strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 20px;
+  line-height: 1;
+}
+
+#next {
+  width: 72px;
+  height: 72px;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(4, 8, 9, 0.72);
+  backdrop-filter: blur(8px);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay-panel {
+  display: grid;
+  gap: 10px;
+  width: min(280px, 100%);
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #102125;
+  text-align: center;
+}
+
+.overlay-panel h2 {
+  font-size: 28px;
+}
+
+.overlay-panel p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.primary-button {
+  min-height: 48px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #141006;
+  font-weight: 900;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr 1.15fr;
+  gap: 9px;
+  min-height: 76px;
+}
+
+.control {
+  min-width: 0;
+  min-height: 70px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: #20353a;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.24);
+  font-size: 30px;
+  font-weight: 900;
+}
+
+.control:active,
+.icon-button:active,
+.primary-button:active {
+  transform: translateY(1px);
+}
+
+.rotate {
+  color: #54d6ff;
+}
+
+.drop {
+  color: var(--danger);
+}
+
+@media (max-width: 370px) {
+  .play-area {
+    grid-template-columns: minmax(0, 1fr) 78px;
+    gap: 8px;
+  }
+
+  h1 {
+    font-size: 19px;
+  }
+
+  .stat strong {
+    font-size: 17px;
+  }
+
+  #next {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .app {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-rows: 1fr;
+  }
+
+  .controls {
+    align-content: end;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
