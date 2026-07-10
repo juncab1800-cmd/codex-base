@@ -5,45 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>iPhone Tetris</title>
+    <title>SOL Blocks</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="app" aria-label="Tetris game">
+    <main class="app" aria-label="SOL Blocks game">
       <section class="game-shell">
         <div class="topbar">
           <div>
-            <p class="eyebrow">TETRIS</p>
-            <h1>iPhone Blocks</h1>
+            <p class="eyebrow">SOL v2</p>
+            <h1>SOL Blocks</h1>
           </div>
           <button id="pauseButton" class="icon-button" type="button" aria-label="Pause">II</button>
         </div>
 
         <div class="play-area">
-          <canvas id="board" width="300" height="600" aria-label="Tetris board"></canvas>
+          <canvas id="board" width="300" height="600" aria-label="Game board"></canvas>
           <aside class="hud" aria-label="Game stats">
             <div class="stat">
               <span>Score</span>
               <strong id="score">0</strong>
             </div>
             <div class="stat">
-              <span>Lines</span>
-              <strong id="lines">0</strong>
+              <span>Best</span>
+              <strong id="best">0</strong>
             </div>
-            <div class="stat">
-              <span>Level</span>
-              <strong id="level">1</strong>
+            <div class="stat-row">
+              <div class="stat compact">
+                <span>Lines</span>
+                <strong id="lines">0</strong>
+              </div>
+              <div class="stat compact">
+                <span>Level</span>
+                <strong id="level">1</strong>
+              </div>
             </div>
             <div class="next-box">
               <span>Next</span>
               <canvas id="next" width="96" height="96" aria-label="Next block"></canvas>
+            </div>
+            <div class="next-box">
+              <span>Hold</span>
+              <canvas id="hold" width="96" height="96" aria-label="Held block"></canvas>
             </div>
           </aside>
         </div>
 
         <div id="overlay" class="overlay">
           <div class="overlay-panel">
-            <h2 id="overlayTitle">Ready</h2>
+            <h2 id="overlayTitle">SOL v2</h2>
             <p id="overlayText">Tap start to play.</p>
             <button id="startButton" class="primary-button" type="button">Start</button>
           </div>
@@ -51,10 +61,11 @@
       </section>
 
       <nav class="controls" aria-label="Touch controls">
-        <button class="control small" data-action="left" type="button" aria-label="Move left">←</button>
-        <button class="control rotate" data-action="rotate" type="button" aria-label="Rotate">⟳</button>
-        <button class="control small" data-action="right" type="button" aria-label="Move right">→</button>
-        <button class="control drop" data-action="drop" type="button" aria-label="Hard drop">↓</button>
+        <button class="control small" data-action="left" type="button" aria-label="Move left">L</button>
+        <button class="control rotate" data-action="rotate" type="button" aria-label="Rotate">ROT</button>
+        <button class="control small" data-action="right" type="button" aria-label="Move right">R</button>
+        <button class="control hold" data-action="hold" type="button" aria-label="Hold block">HOLD</button>
+        <button class="control drop" data-action="drop" type="button" aria-label="Hard drop">DROP</button>
       </nav>
     </main>
     <script src="app.js"></script>
