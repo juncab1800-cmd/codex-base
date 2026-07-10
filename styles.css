@@ -1,12 +1,13 @@
 :root {
   color-scheme: dark;
-  --bg: #071013;
-  --panel: #102125;
-  --panel-2: #182d32;
+  --bg: #080d10;
+  --panel: #111c20;
+  --panel-2: #1a2a30;
   --line: rgba(255, 255, 255, 0.12);
   --text: #f4fbf8;
   --muted: #9fb4b1;
-  --accent: #ffcf48;
+  --accent: #ffd95a;
+  --solar: #ff8d3a;
   --danger: #ff5f6d;
 }
 
@@ -24,8 +25,9 @@ body {
 
 body {
   background:
-    radial-gradient(circle at 20% 0%, rgba(255, 207, 72, 0.18), transparent 28rem),
-    linear-gradient(155deg, #071013 0%, #142527 52%, #101015 100%);
+    radial-gradient(circle at 20% 0%, rgba(255, 217, 90, 0.2), transparent 23rem),
+    radial-gradient(circle at 85% 22%, rgba(84, 214, 255, 0.13), transparent 18rem),
+    linear-gradient(155deg, #080d10 0%, #142329 56%, #111015 100%);
   color: var(--text);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -53,9 +55,15 @@ button {
   min-height: 0;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(7, 16, 19, 0.82);
+  background: rgba(8, 13, 16, 0.84);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.38);
   overflow: hidden;
+  transition: box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.game-shell.flash {
+  border-color: rgba(255, 217, 90, 0.55);
+  box-shadow: 0 0 0 2px rgba(255, 217, 90, 0.28), 0 18px 50px rgba(0, 0, 0, 0.38);
 }
 
 .topbar {
@@ -67,9 +75,9 @@ button {
 
 .eyebrow {
   margin: 0 0 2px;
-  color: var(--accent);
+  color: var(--solar);
   font-size: 11px;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0;
 }
 
@@ -80,7 +88,7 @@ p {
 }
 
 h1 {
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.05;
 }
 
@@ -97,7 +105,7 @@ h1 {
 
 .play-area {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 92px;
+  grid-template-columns: minmax(0, 1fr) 94px;
   gap: 10px;
   min-height: 0;
   padding: 0 12px 12px;
@@ -121,6 +129,12 @@ h1 {
   min-width: 0;
 }
 
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
 .stat,
 .next-box {
   display: grid;
@@ -129,6 +143,10 @@ h1 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--panel);
+}
+
+.stat.compact {
+  padding-inline: 6px;
 }
 
 .stat span,
@@ -141,11 +159,16 @@ h1 {
 .stat strong {
   min-width: 0;
   overflow-wrap: anywhere;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
 }
 
-#next {
+#best.live-best {
+  color: var(--accent);
+}
+
+#next,
+#hold {
   width: 72px;
   height: 72px;
 }
@@ -176,7 +199,8 @@ h1 {
 }
 
 .overlay-panel h2 {
-  font-size: 28px;
+  color: var(--accent);
+  font-size: 34px;
 }
 
 .overlay-panel p {
@@ -194,8 +218,8 @@ h1 {
 
 .controls {
   display: grid;
-  grid-template-columns: 1fr 1.15fr 1fr 1.15fr;
-  gap: 9px;
+  grid-template-columns: 0.9fr 1.05fr 0.9fr 1.05fr 1.15fr;
+  gap: 8px;
   min-height: 76px;
 }
 
@@ -206,7 +230,7 @@ h1 {
   border-radius: 8px;
   background: #20353a;
   box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.24);
-  font-size: 30px;
+  font-size: 18px;
   font-weight: 900;
 }
 
@@ -220,33 +244,42 @@ h1 {
   color: #54d6ff;
 }
 
+.hold {
+  color: #c77dff;
+}
+
 .drop {
   color: var(--danger);
 }
 
 @media (max-width: 370px) {
   .play-area {
-    grid-template-columns: minmax(0, 1fr) 78px;
+    grid-template-columns: minmax(0, 1fr) 76px;
     gap: 8px;
   }
 
   h1 {
-    font-size: 19px;
+    font-size: 20px;
   }
 
   .stat strong {
-    font-size: 17px;
+    font-size: 16px;
   }
 
-  #next {
+  #next,
+  #hold {
     width: 60px;
     height: 60px;
+  }
+
+  .control {
+    font-size: 15px;
   }
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
   .app {
-    grid-template-columns: minmax(0, 1fr) 300px;
+    grid-template-columns: minmax(0, 1fr) 320px;
     grid-template-rows: 1fr;
   }
 
