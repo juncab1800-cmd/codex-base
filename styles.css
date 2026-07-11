@@ -42,9 +42,9 @@ button {
 .app {
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
-  gap: 8px;
+  gap: 6px;
   height: 100dvh;
-  padding: max(10px, env(safe-area-inset-top)) 10px max(8px, env(safe-area-inset-bottom));
+  padding: max(8px, env(safe-area-inset-top)) 8px max(6px, env(safe-area-inset-bottom));
 }
 
 .game-shell {
@@ -70,7 +70,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 12px 0;
+  padding: 8px 10px 0;
 }
 
 .eyebrow {
@@ -88,14 +88,14 @@ p {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.05;
 }
 
 .icon-button {
   display: grid;
   place-items: center;
-  width: 44px;
+  width: 36px;
   aspect-ratio: 1;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -106,9 +106,9 @@ h1 {
 .play-area {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 94px;
-  gap: 10px;
+  gap: 8px;
   min-height: 0;
-  padding: 0 12px 12px;
+  padding: 0 10px 8px;
 }
 
 #board {
@@ -218,11 +218,11 @@ h1 {
 
 .controls.famicom {
   display: grid;
-  grid-template-columns: 96px minmax(60px, 1fr) 96px;
+  grid-template-columns: 92px minmax(72px, 1fr) 86px;
   align-items: center;
-  gap: 8px;
-  min-height: 72px;
-  padding: 6px 8px;
+  gap: 6px;
+  min-height: 50px;
+  padding: 4px 6px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 8px;
   background: linear-gradient(180deg, #d7d1c8 0%, #aaa39d 100%);
@@ -248,7 +248,7 @@ h1 {
 .dpad {
   display: grid;
   grid-template-columns: repeat(3, 28px);
-  grid-template-rows: repeat(3, 22px);
+  grid-template-rows: repeat(3, 15px);
   justify-content: center;
   gap: 0;
 }
@@ -256,11 +256,11 @@ h1 {
 .dpad-button {
   display: grid;
   place-items: center;
-  min-height: 22px;
+  min-height: 15px;
   border: 1px solid #161719;
   border-radius: 3px;
   background: #24262a;
-  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.42);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.42);
   color: #f4f1e9;
   font-size: 9px;
   line-height: 1;
@@ -297,17 +297,17 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: end;
-  gap: 6px;
-  padding-top: 28px;
+  gap: 4px;
+  padding-top: 20px;
 }
 
 .system-button {
-  min-height: 16px;
+  min-height: 14px;
   border-radius: 999px;
   background: #343236;
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.42);
   color: #f0ebe4;
-  font-size: 8px;
+  font-size: 7px;
   letter-spacing: 0;
 }
 
@@ -315,20 +315,20 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: end;
-  gap: 8px;
+  gap: 7px;
   transform: rotate(-12deg);
 }
 
 .action-button {
   display: grid;
   place-items: center;
-  width: 40px;
+  width: 32px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: #9c2230;
-  box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.3), 0 4px 0 rgba(0, 0, 0, 0.22);
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.3), 0 3px 0 rgba(0, 0, 0, 0.22);
   color: #fff6ef;
-  font-size: 15px;
+  font-size: 13px;
 }
 
 .action-button span {
@@ -357,24 +357,25 @@ h1 {
   }
 
   .controls.famicom {
-    grid-template-columns: 82px minmax(52px, 1fr) 82px;
-    gap: 5px;
-    min-height: 66px;
-    padding: 5px 6px;
+    grid-template-columns: 80px minmax(62px, 1fr) 74px;
+    gap: 4px;
+    min-height: 46px;
+    padding: 4px 5px;
   }
 
   .dpad {
-    grid-template-columns: repeat(3, 25px);
-    grid-template-rows: repeat(3, 20px);
+    grid-template-columns: repeat(3, 24px);
+    grid-template-rows: repeat(3, 14px);
   }
 
   .dpad-button {
-    min-height: 20px;
+    min-height: 14px;
+    font-size: 8px;
   }
 
   .action-button {
-    width: 36px;
-    font-size: 14px;
+    width: 30px;
+    font-size: 12px;
   }
 }
 
@@ -386,6 +387,6 @@ h1 {
 
   .controls.famicom {
     align-content: end;
-    grid-template-columns: 96px minmax(60px, 1fr) 96px;
+    grid-template-columns: 92px minmax(72px, 1fr) 86px;
   }
 }
