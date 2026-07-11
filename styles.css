@@ -11,7 +11,9 @@
   --danger: #ff5f6d;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -40,9 +42,9 @@ button {
 .app {
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
-  gap: 12px;
+  gap: 8px;
   height: 100dvh;
-  padding: max(12px, env(safe-area-inset-top)) 12px max(12px, env(safe-area-inset-bottom));
+  padding: max(10px, env(safe-area-inset-top)) 10px max(8px, env(safe-area-inset-bottom));
 }
 
 .game-shell {
@@ -79,8 +81,16 @@ button {
   letter-spacing: 0;
 }
 
-h1, h2, p { margin: 0; }
-h1 { font-size: 24px; line-height: 1.05; }
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+  line-height: 1.05;
+}
 
 .icon-button {
   display: grid;
@@ -112,8 +122,18 @@ h1 { font-size: 24px; line-height: 1.05; }
   background: #05090b;
 }
 
-.hud { display: grid; align-content: start; gap: 8px; min-width: 0; }
-.stat-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.hud {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
 
 .stat,
 .next-box {
@@ -125,7 +145,9 @@ h1 { font-size: 24px; line-height: 1.05; }
   background: var(--panel);
 }
 
-.stat.compact { padding-inline: 6px; }
+.stat.compact {
+  padding-inline: 6px;
+}
 
 .stat span,
 .next-box span {
@@ -141,8 +163,15 @@ h1 { font-size: 24px; line-height: 1.05; }
   line-height: 1;
 }
 
-#best.live-best { color: var(--accent); }
-#next, #hold { width: 72px; height: 72px; }
+#best.live-best {
+  color: var(--accent);
+}
+
+#next,
+#hold {
+  width: 72px;
+  height: 72px;
+}
 
 .overlay {
   position: absolute;
@@ -154,7 +183,9 @@ h1 { font-size: 24px; line-height: 1.05; }
   backdrop-filter: blur(8px);
 }
 
-.overlay.hidden { display: none; }
+.overlay.hidden {
+  display: none;
+}
 
 .overlay-panel {
   display: grid;
@@ -167,8 +198,15 @@ h1 { font-size: 24px; line-height: 1.05; }
   text-align: center;
 }
 
-.overlay-panel h2 { color: var(--accent); font-size: 34px; }
-.overlay-panel p { color: var(--muted); font-size: 14px; }
+.overlay-panel h2 {
+  color: var(--accent);
+  font-size: 34px;
+}
+
+.overlay-panel p {
+  color: var(--muted);
+  font-size: 14px;
+}
 
 .primary-button {
   min-height: 48px;
@@ -180,11 +218,11 @@ h1 { font-size: 24px; line-height: 1.05; }
 
 .controls.famicom {
   display: grid;
-  grid-template-columns: 112px minmax(68px, 1fr) 112px;
+  grid-template-columns: 96px minmax(60px, 1fr) 96px;
   align-items: center;
-  gap: 10px;
-  min-height: 98px;
-  padding: 8px;
+  gap: 8px;
+  min-height: 72px;
+  padding: 6px 8px;
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 8px;
   background: linear-gradient(180deg, #d7d1c8 0%, #aaa39d 100%);
@@ -203,12 +241,14 @@ h1 { font-size: 24px; line-height: 1.05; }
 .control:active,
 .system-button:active,
 .icon-button:active,
-.primary-button:active { transform: translateY(1px); }
+.primary-button:active {
+  transform: translateY(1px);
+}
 
 .dpad {
   display: grid;
-  grid-template-columns: repeat(3, 34px);
-  grid-template-rows: repeat(3, 30px);
+  grid-template-columns: repeat(3, 28px);
+  grid-template-rows: repeat(3, 22px);
   justify-content: center;
   gap: 0;
 }
@@ -216,42 +256,58 @@ h1 { font-size: 24px; line-height: 1.05; }
 .dpad-button {
   display: grid;
   place-items: center;
-  min-height: 30px;
+  min-height: 22px;
   border: 1px solid #161719;
   border-radius: 3px;
   background: #24262a;
   box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.42);
   color: #f4f1e9;
-  font-size: 11px;
+  font-size: 9px;
   line-height: 1;
 }
 
-.dpad-button.up { grid-column: 2; grid-row: 1; }
-.dpad-button.left { grid-column: 1; grid-row: 2; }
+.dpad-button.up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.dpad-button.left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
 .dpad-center {
   grid-column: 2;
   grid-row: 2;
   background: #24262a;
   border-block: 1px solid #161719;
 }
-.dpad-button.right { grid-column: 3; grid-row: 2; }
-.dpad-button.down { grid-column: 2; grid-row: 3; }
+
+.dpad-button.right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.dpad-button.down {
+  grid-column: 2;
+  grid-row: 3;
+}
 
 .system-buttons {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: end;
-  gap: 8px;
-  padding-top: 38px;
+  gap: 6px;
+  padding-top: 28px;
 }
 
 .system-button {
-  min-height: 20px;
+  min-height: 16px;
   border-radius: 999px;
   background: #343236;
   box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.42);
   color: #f0ebe4;
-  font-size: 9px;
+  font-size: 8px;
   letter-spacing: 0;
 }
 
@@ -259,36 +315,77 @@ h1 { font-size: 24px; line-height: 1.05; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: end;
-  gap: 10px;
+  gap: 8px;
   transform: rotate(-12deg);
 }
 
 .action-button {
   display: grid;
   place-items: center;
-  width: 50px;
+  width: 40px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: #9c2230;
   box-shadow: inset 0 -5px 0 rgba(0, 0, 0, 0.3), 0 4px 0 rgba(0, 0, 0, 0.22);
   color: #fff6ef;
-  font-size: 18px;
+  font-size: 15px;
 }
 
-.action-button span { display: block; transform: rotate(12deg); }
+.action-button span {
+  display: block;
+  transform: rotate(12deg);
+}
 
 @media (max-width: 370px) {
-  .play-area { grid-template-columns: minmax(0, 1fr) 76px; gap: 8px; }
-  h1 { font-size: 20px; }
-  .stat strong { font-size: 16px; }
-  #next, #hold { width: 60px; height: 60px; }
-  .controls.famicom { grid-template-columns: 94px minmax(58px, 1fr) 94px; gap: 6px; min-height: 90px; }
-  .dpad { grid-template-columns: repeat(3, 29px); grid-template-rows: repeat(3, 27px); }
-  .dpad-button { min-height: 28px; }
-  .action-button { width: 42px; font-size: 16px; }
+  .play-area {
+    grid-template-columns: minmax(0, 1fr) 76px;
+    gap: 8px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .stat strong {
+    font-size: 16px;
+  }
+
+  #next,
+  #hold {
+    width: 60px;
+    height: 60px;
+  }
+
+  .controls.famicom {
+    grid-template-columns: 82px minmax(52px, 1fr) 82px;
+    gap: 5px;
+    min-height: 66px;
+    padding: 5px 6px;
+  }
+
+  .dpad {
+    grid-template-columns: repeat(3, 25px);
+    grid-template-rows: repeat(3, 20px);
+  }
+
+  .dpad-button {
+    min-height: 20px;
+  }
+
+  .action-button {
+    width: 36px;
+    font-size: 14px;
+  }
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
-  .app { grid-template-columns: minmax(0, 1fr) 320px; grid-template-rows: 1fr; }
-  .controls.famicom { align-content: end; grid-template-columns: 112px minmax(68px, 1fr) 112px; }
+  .app {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    grid-template-rows: 1fr;
+  }
+
+  .controls.famicom {
+    align-content: end;
+    grid-template-columns: 96px minmax(60px, 1fr) 96px;
+  }
 }
