@@ -22,32 +22,14 @@
         <div class="play-area">
           <canvas id="board" width="300" height="600" aria-label="Game board"></canvas>
           <aside class="hud" aria-label="Game stats">
-            <div class="stat">
-              <span>Score</span>
-              <strong id="score">0</strong>
-            </div>
-            <div class="stat">
-              <span>Best</span>
-              <strong id="best">0</strong>
-            </div>
+            <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+            <div class="stat"><span>Best</span><strong id="best">0</strong></div>
             <div class="stat-row">
-              <div class="stat compact">
-                <span>Lines</span>
-                <strong id="lines">0</strong>
-              </div>
-              <div class="stat compact">
-                <span>Level</span>
-                <strong id="level">1</strong>
-              </div>
+              <div class="stat compact"><span>Lines</span><strong id="lines">0</strong></div>
+              <div class="stat compact"><span>Level</span><strong id="level">1</strong></div>
             </div>
-            <div class="next-box">
-              <span>Next</span>
-              <canvas id="next" width="96" height="96" aria-label="Next block"></canvas>
-            </div>
-            <div class="next-box">
-              <span>Hold</span>
-              <canvas id="hold" width="96" height="96" aria-label="Held block"></canvas>
-            </div>
+            <div class="next-box"><span>Next</span><canvas id="next" width="96" height="96" aria-label="Next block"></canvas></div>
+            <div class="next-box"><span>Hold</span><canvas id="hold" width="96" height="96" aria-label="Held block"></canvas></div>
           </aside>
         </div>
 
@@ -60,12 +42,22 @@
         </div>
       </section>
 
-      <nav class="controls" aria-label="Touch controls">
-        <button class="control small" data-action="left" type="button" aria-label="Move left">L</button>
-        <button class="control rotate" data-action="rotate" type="button" aria-label="Rotate">ROT</button>
-        <button class="control small" data-action="right" type="button" aria-label="Move right">R</button>
-        <button class="control hold" data-action="hold" type="button" aria-label="Hold block">HOLD</button>
-        <button class="control drop" data-action="drop" type="button" aria-label="Hard drop">DROP</button>
+      <nav class="controls famicom" aria-label="Famicom style touch controls">
+        <div class="dpad" aria-label="Directional controls">
+          <button class="control dpad-button up" data-action="rotate" type="button" aria-label="Rotate">U</button>
+          <button class="control dpad-button left" data-action="left" type="button" aria-label="Move left">L</button>
+          <div class="dpad-center" aria-hidden="true"></div>
+          <button class="control dpad-button right" data-action="right" type="button" aria-label="Move right">R</button>
+          <button class="control dpad-button down" data-action="drop" type="button" aria-label="Hard drop">D</button>
+        </div>
+        <div class="system-buttons" aria-label="System controls">
+          <button class="system-button" data-action="pause" type="button" aria-label="Pause game">SELECT</button>
+          <button class="system-button" data-action="start" type="button" aria-label="Start or resume game">START</button>
+        </div>
+        <div class="action-buttons" aria-label="Action controls">
+          <button class="control action-button b-button" data-action="hold" type="button" aria-label="Hold block"><span>B</span></button>
+          <button class="control action-button a-button" data-action="rotate" type="button" aria-label="Rotate"><span>A</span></button>
+        </div>
       </nav>
     </main>
     <script src="app.js"></script>
