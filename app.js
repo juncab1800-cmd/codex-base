@@ -71,12 +71,7 @@ function refillBag() {
 
 function createPiece(type) {
   const matrix = SHAPES[type].map((row) => [...row]);
-  return {
-    type,
-    matrix,
-    x: Math.floor((COLS - matrix[0].length) / 2),
-    y: 0
-  };
+  return { type, matrix, x: Math.floor((COLS - matrix[0].length) / 2), y: 0 };
 }
 
 function randomPiece() {
@@ -123,9 +118,7 @@ function collide(testPiece = piece, offsetX = 0, offsetY = 0, matrix = testPiece
 function merge() {
   piece.matrix.forEach((row, y) => {
     row.forEach((value, x) => {
-      if (value && piece.y + y >= 0) {
-        board[piece.y + y][piece.x + x] = piece.type;
-      }
+      if (value && piece.y + y >= 0) board[piece.y + y][piece.x + x] = piece.type;
     });
   });
 }
@@ -140,12 +133,10 @@ function clearLines() {
       y += 1;
     }
   }
-
   if (!cleared) {
     combo = 0;
     return;
   }
-
   combo += 1;
   lines += cleared;
   level = Math.floor(lines / 10) + 1;
@@ -252,9 +243,7 @@ function update(time = 0) {
   lastTime = time;
   if (!paused) {
     dropCounter += delta;
-    if (dropCounter > dropInterval()) {
-      softDrop();
-    }
+    if (dropCounter > dropInterval()) softDrop();
     draw();
   }
   animationId = requestAnimationFrame(update);
@@ -347,9 +336,7 @@ function updateHud() {
 }
 
 function saveBest() {
-  if (score >= best) {
-    localStorage.setItem("sol-best", String(score));
-  }
+  if (score >= best) localStorage.setItem("sol-best", String(score));
 }
 
 function pulseBoard() {
@@ -389,6 +376,11 @@ function handleAction(action) {
   if (action === "rotate") rotatePiece();
   if (action === "hold") holdPiece();
   if (action === "drop") hardDrop();
+  if (action === "pause") togglePause();
+  if (action === "start") {
+    if (paused) togglePause();
+    else if (!running || gameOver) resetGame();
+  }
 }
 
 document.querySelectorAll("[data-action]").forEach((button) => {
@@ -409,15 +401,7 @@ startButton.addEventListener("click", () => {
 pauseButton.addEventListener("click", togglePause);
 
 document.addEventListener("keydown", (event) => {
-  const keys = {
-    ArrowLeft: "left",
-    ArrowRight: "right",
-    ArrowUp: "rotate",
-    Shift: "hold",
-    c: "hold",
-    C: "hold",
-    " ": "drop"
-  };
+  const keys = { ArrowLeft: "left", ArrowRight: "right", ArrowUp: "rotate", Shift: "hold", c: "hold", C: "hold", " ": "drop" };
   if (event.key === "ArrowDown") softDrop();
   if (event.key.toLowerCase() === "p") togglePause();
   if (keys[event.key]) handleAction(keys[event.key]);
@@ -435,15 +419,10 @@ boardCanvas.addEventListener("touchend", (event) => {
   const dy = touch.clientY - touchStart.y;
   const ax = Math.abs(dx);
   const ay = Math.abs(dy);
-  if (Math.max(ax, ay) < 18) {
-    rotatePiece();
-  } else if (ay > ax && dy < 0) {
-    holdPiece();
-  } else if (ay > ax && dy > 0) {
-    hardDrop();
-  } else if (ax > ay) {
-    move(dx > 0 ? 1 : -1);
-  }
+  if (Math.max(ax, ay) < 18) rotatePiece();
+  else if (ay > ax && dy < 0) holdPiece();
+  else if (ay > ax && dy > 0) hardDrop();
+  else if (ax > ay) move(dx > 0 ? 1 : -1);
   touchStart = null;
 }, { passive: true });
 
